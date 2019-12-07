@@ -1,0 +1,27 @@
+# [[plugins]]
+# repo = 'easymotion/vim-easymotion'
+# hook_add = '''
+# let g:EasyMotion_do_mapping = 0 "Disable default mappings
+# '''
+#
+# [[plugins]]
+# repo = 'tyru/caw.vim'
+#
+# # Git
+# [[plugins]]
+# repo = "airblade/vim-gitgutter"
+#
+# [[plugins]]
+# repo = 'lambdalisue/gina.vim'
+#
+#
+# [[plugins]]
+# repo = 'Yggdroot/indentLine'
+#
+# [[plugins]]
+# repo = 'jiangmiao/auto-pairs'
+#
+# [[plugins]]
+# repo = 'cespare/vim-toml'
+
+

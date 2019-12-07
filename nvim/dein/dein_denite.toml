@@ -1,0 +1,63 @@
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_add = '''
+let s:denite_win_width_percent = 0.85
+let s:denite_win_height_percent = 0.7
+
+" Change denite default options
+call denite#custom#option('default', {
+    \ 'split': 'floating',
+    \ 'prompt': '❯ ',
+    \ })
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> <C-c>
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> <BS>
+  \ denite#do_map('move_up_path')
+  nnoremap <silent><buffer><expr> /
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Space>
+  \ denite#do_map('toggle_select').'j'
+endfunction
+autocmd FileType denite-filter call s:denite_filter_my_setting()
+function! s:denite_filter_my_setting() abort
+  inoremap <silent><buffer><expr> <C-c>   denite#do_map('quit')
+  nnoremap <silent><buffer><expr> <C-c>   denite#do_map('quit')
+endfunction
+
+" ディレクトリに rg を設定
+""call denite#custom#var('directory_rec', 'command', ['rg', '--files', '--glob', '!.git'])
+
+" file/rec に rg を設定
+call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
+
+" 特定ディレクトリをリスティングしない
+call denite#custom#filter('matcher/ignore_globs', 'ignore_globs', ['.git', '.svn', 'node_modules'])
+""
+""call denite#custom#var('grep', 'command', ['rg'])
+""call denite#custom#var('grep', 'default_opts', ['--no-heading', '--vimgrep'])
+""call denite#custom#var('grep', 'recursive_opts', [])
+""call denite#custom#var('grep', 'pattern_opt', [])
+""call denite#custom#var('grep', 'separator', ['--'])
+""call denite#custom#var('grep', 'final_opts', [])
+
+'''
+
+[[plugins]]
+repo = 'Shougo/deol.nvim'
+hook_add = '''
+" 【Leader + t】 float windowでターミナルを表示
+nnoremap <silent> <C-t> :<C-u>Deol -command zsh -split=floating<CR>
+'''

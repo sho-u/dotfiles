@@ -1,0 +1,65 @@
+{
+    "diagnostic.errorSign": "\uf05e ",
+    "diagnostic.warningSign": "\uf071 ",
+    "diagnostic.infoSign": "\uf05a ",
+    "diagnostic.hintSign": "\uf059 ",
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.rootPatterns": [
+        ".git"
+    ],
+    "diagnostic.checkCurrentLine": true,
+    "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+    "codeLens.enable": true,
+    "list.insertMappings": {
+        "<C-n>": "normal:j",
+        "<C-p>": "normal:k"
+    },
+    "diagnostic-languageserver.filetypes": {
+        "php": "phpcs"
+    },
+    "diagnostic-languageserver.linters": {
+        "phpcs": {
+            "command": "phpcs",
+            "debounce": 1000,
+            "rootPatterns": ["composer.json", "composer.lock", "vendor", ".git"],
+            "args": [
+                "--standard=PSR12",
+                "--report=emacs",
+                "-s",
+                "-"
+            ],
+            "offsetLine": 0,
+            "offsetColumn": 0,
+            "sourceName": "phpcs",
+            "formatLines": 1,
+            "formatPattern": [
+                "^.*:(\\d+):(\\d+):\\s+(.*)\\s+-\\s+(.*)$",
+                {
+                "line": 1,
+                "column": 2,
+                "message": 4,
+                "security": 3
+                }
+            ],
+            "securities": {
+              "error": "error",
+              "warning": "warning"
+            }
+        },
+        "filetypes": {
+            "php": "phpcs"
+        },
+        "formatters": {
+        },
+        "formatFiletypes": {
+        }
+    },
+    "languageserver": {
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+        }
+    }
+}
