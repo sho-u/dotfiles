@@ -1,2 +1,4 @@
 export ZDOTDIR=~/.zsh
-source $ZDOTDIR/.zshenv
+
+## profile
+# zmodload zsh/zprof && zprof
