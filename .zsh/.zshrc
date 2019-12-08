@@ -20,9 +20,9 @@ source "$ZDOTDIR/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ## End of Zplugin installer's chunk
-zplugin ice wait'!0';zplugin light zsh-users/zsh-autosuggestions
-zplugin ice wait'!0';zplugin light zdharma/fast-syntax-highlighting
-zplugin ice wait'!0';zplugin load zsh-users/zsh-completions
+zplugin ice wait'!0' lucid;zplugin light zsh-users/zsh-autosuggestions
+zplugin ice wait'!0' lucid;zplugin light zdharma/fast-syntax-highlighting
+zplugin ice wait'!0' lucid;zplugin light zsh-users/zsh-completions
 zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
 
 
